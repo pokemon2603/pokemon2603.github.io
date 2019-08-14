@@ -22,14 +22,14 @@
     <script>
         // url có dạng https://vnapi.thoxaydung.xyz/post.html?id=xxxxxxxx
         $.ajax({
-            url: `http://vnapi.thoxaydung.xyz/post/${window.location.search.slice(4)}`,
+            url: `https://jsonplaceholder.typicode.com/posts`,
             contentType: 'application/json',
             success: function(response) {
-                document.title = response.post.title;
-                $('#title').html(response.post.title);
-                $('#timestamp').html(new Date(response.post.created).toLocaleString('vi-VN'));
-                $('#image').attr('src', 'http://vnapi.thoxaydung.xyz/' + response.post.image);
-                $('#content').html(response.post.content);
+                document.title = response[0].title;
+                $('#title').html(response[0].title);
+                // $('#timestamp').html(new Date(response.post.created).toLocaleString('vi-VN'));
+                // $('#image').attr('src', 'http://vnapi.thoxaydung.xyz/' + response.post.image);
+                $('#content').html(response[0].body);
             }
         });
     </script>
